@@ -103,9 +103,32 @@ export default function ScanPage() {
   }, [cameraActive]);
 
   async function handleCheckin(data: string) {
-    setStatus({ type: "loading", message: "Proveravam članstvo..." });
+    setStatus({ type: "loading", message: "Proveravam..." });
     
     try {
+      // Proveri da li je QR kod URL (za klub QR)
+      if (data.startsWith('http://') || data.startsWith('https://')) {
+        // Ako je URL za checkin, preusmeri na tu stranicu
+        if (data.includes('/checkin')) {
+          setStatus({ 
+            type: "success", 
+            message: "Preusmeravanje na check-in stranicu..." 
+          });
+          toast.success("QR kod kluba detektovan!");
+          
+          // Preusmeri nakon 1 sekunde
+          setTimeout(() => {
+            window.location.href = data;
+          }, 1000);
+          return;
+        } else {
+          setStatus({ type: "error", message: "Nepoznat URL u QR kodu" });
+          toast.error("QR kod ne vodi na check-in stranicu");
+          return;
+        }
+      }
+      
+      // Inače pokušaj da parsiraš kao JSON (individualni QR kod člana)
       const payload = JSON.parse(data);
       const res = await fetch("/api/checkin", {
         method: "POST",
