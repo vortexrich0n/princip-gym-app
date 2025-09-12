@@ -14,7 +14,7 @@ export default async function GymQRPage() {
     );
   }
 
-  // URL koji će članovi skenirati
+  // URL koji će članovi skenirati - kao FitPass sistem
   const checkInUrl = "https://princip-gym-app.vercel.app/checkin";
   
   // Generiši QR kod
