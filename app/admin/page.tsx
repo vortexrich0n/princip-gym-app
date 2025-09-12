@@ -100,7 +100,7 @@ export default async function AdminPage() {
   }
 
   return (
-    <div className="space-y-6 p-4">
+    <div className="space-y-6 p-4 pb-24 sm:pb-8">
       <div className="flex justify-between items-center flex-wrap gap-2">
         <h2 className="text-3xl font-bold">Admin Panel</h2>
         <div className="flex gap-2">
@@ -160,7 +160,7 @@ export default async function AdminPage() {
             
             return (
               <div key={u.id} className={`card p-4 ${expired ? 'border-red-500 bg-red-50' : ''}`}>
-                <div className="grid md:grid-cols-4 gap-4">
+                <div className="flex flex-col lg:grid lg:grid-cols-4 gap-4">
                   <div>
                     <div className="font-semibold text-lg">{u.name || u.email}</div>
                     <div className="text-xs text-gray-500">ID: {u.id.slice(0, 8)}...</div>
@@ -209,9 +209,9 @@ export default async function AdminPage() {
                     )}
                   </div>
                   
-                  <div className="flex gap-2 items-start">
+                  <div className="flex flex-col lg:flex-row gap-2">
                     {!active && (
-                      <form action={updateMembership} className="flex gap-1">
+                      <form action={updateMembership} className="flex flex-col sm:flex-row gap-2">
                         <input type="hidden" name="userId" value={u.id} />
                         <input type="hidden" name="action" value="activate" />
                         <select name="months" className="input input-sm" required>
@@ -221,20 +221,20 @@ export default async function AdminPage() {
                           <option value="6">6 meseci</option>
                           <option value="12">12 meseci</option>
                         </select>
-                        <input type="number" name="amount" placeholder="Iznos" className="input input-sm w-24" required />
+                        <input type="number" name="amount" placeholder="Iznos" className="input input-sm" required />
                         <select name="plan" className="input input-sm" required>
                           <option value="">Plan</option>
                           <option value="Basic">Basic</option>
                           <option value="Premium">Premium</option>
                           <option value="VIP">VIP</option>
                         </select>
-                        <button className="btn btn-sm btn-primary">Aktiviraj</button>
+                        <button className="btn btn-sm btn-primary w-full sm:w-auto">Aktiviraj</button>
                       </form>
                     )}
                     
                     {active && (
-                      <>
-                        <form action={updateMembership} className="flex gap-1">
+                      <div className="flex flex-col sm:flex-row gap-2">
+                        <form action={updateMembership} className="flex flex-col sm:flex-row gap-2">
                           <input type="hidden" name="userId" value={u.id} />
                           <input type="hidden" name="action" value="extend" />
                           <select name="months" className="input input-sm" required>
@@ -244,16 +244,16 @@ export default async function AdminPage() {
                             <option value="6">+6 meseci</option>
                             <option value="12">+12 meseci</option>
                           </select>
-                          <input type="number" name="amount" placeholder="Iznos" className="input input-sm w-20" required />
-                          <button className="btn btn-sm btn-secondary">Produži</button>
+                          <input type="number" name="amount" placeholder="Iznos" className="input input-sm" required />
+                          <button className="btn btn-sm btn-secondary w-full sm:w-auto">Produži</button>
                         </form>
                         
                         <form action={updateMembership}>
                           <input type="hidden" name="userId" value={u.id} />
                           <input type="hidden" name="action" value="deactivate" />
-                          <button className="btn btn-sm btn-error">Deaktiviraj</button>
+                          <button className="btn btn-sm btn-error w-full sm:w-auto">Deaktiviraj</button>
                         </form>
-                      </>
+                      </div>
                     )}
                     
                     <form action={deleteUser}>

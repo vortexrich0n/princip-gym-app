@@ -35,13 +35,12 @@ export default async function GymQRPage() {
         <div className="text-center space-y-4">
           <h2 className="text-xl font-semibold">Štampajte ovaj QR kod i postavite ga na ulazu</h2>
           
-          <div className="bg-white p-8 rounded-lg inline-block">
+          <div className="bg-white p-8 rounded-lg inline-block shadow-2xl">
             <img src={qrCodeDataUrl} alt="Gym Check-in QR Code" className="mx-auto" />
-          </div>
-          
-          <div className="space-y-2 text-gray-600">
-            <p className="font-semibold text-lg">Princip Gym - Check In</p>
-            <p>Skenirajte za prijavu</p>
+            <div className="mt-4 space-y-1 text-gray-800">
+              <p className="font-bold text-xl text-black">Princip Gym - Check In</p>
+              <p className="text-gray-700">Skenirajte za prijavu</p>
+            </div>
           </div>
         </div>
       </div>

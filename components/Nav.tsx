@@ -6,12 +6,16 @@ import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSession, signOut } from "next-auth/react";
+import { LogOut, User, Shield } from "lucide-react";
 
 export default function Nav() {
   const pathname = usePathname();
+  const { data: session, status } = useSession();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isDark, setIsDark] = useState(true);
+  const isAdmin = (session?.user as any)?.role === "ADMIN";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,12 +34,22 @@ export default function Nav() {
   }, [pathname]);
 
   const links = [
-    { href: "/", label: "Početna" },
-    { href: "/register", label: "Postani Član" },
-    { href: "/login", label: "Prijava" },
-    { href: "/dashboard", label: "Moj Nalog" },
-    { href: "/scan", label: "Skener" }
+    { href: "/", label: "Početna", icon: null, showAlways: true },
+    ...(!session ? [
+      { href: "/register", label: "Postani Član", icon: null, showAlways: false },
+      { href: "/login", label: "Prijava", icon: <User className="w-4 h-4" />, showAlways: false }
+    ] : []),
+    ...(session ? [
+      { href: "/dashboard", label: "Moj Nalog", icon: <User className="w-4 h-4" />, showAlways: false },
+      { href: "/scan", label: "Skener", icon: null, showAlways: false },
+      ...(isAdmin ? [{ href: "/admin", label: "Admin", icon: <Shield className="w-4 h-4" />, showAlways: false }] : [])
+    ] : [])
   ];
+
+  const handleLogout = async () => {
+    await signOut({ callbackUrl: "/" });
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -73,12 +87,13 @@ export default function Nav() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "relative px-1 py-2 text-sm font-semibold transition-all duration-300 hover:text-accent",
+                    "relative px-1 py-2 text-sm font-semibold transition-all duration-300 hover:text-accent flex items-center gap-2",
                     pathname === link.href
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground"
                   )}
                 >
+                  {link.icon}
                   <span className="relative z-10">{link.label}</span>
                   {pathname === link.href && (
                     <motion.div
@@ -89,6 +104,15 @@ export default function Nav() {
                   )}
                 </Link>
               ))}
+              {session && (
+                <button
+                  onClick={handleLogout}
+                  className="relative px-1 py-2 text-sm font-semibold transition-all duration-300 hover:text-accent text-muted-foreground hover:text-foreground flex items-center gap-2"
+                >
+                  <LogOut className="w-4 h-4" />
+                  <span>Odjavi se</span>
+                </button>
+              )}
               <div className="ml-4 pl-4 border-l">
                 <ThemeToggle />
               </div>
@@ -157,17 +181,34 @@ export default function Nav() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "text-3xl font-bold transition-all duration-300 hover:scale-110 block",
+                        "text-3xl font-bold transition-all duration-300 hover:scale-110 flex items-center gap-3",
                         pathname === link.href
                           ? "text-gradient-champion"
                           : "text-muted-foreground hover:text-foreground"
                       )}
                       onClick={() => setIsOpen(false)}
                     >
+                      {link.icon && <span className="text-2xl">{link.icon}</span>}
                       {link.label}
                     </Link>
                   </motion.div>
                 ))}
+                {session && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{ delay: (links.length) * 0.1 }}
+                  >
+                    <button
+                      onClick={handleLogout}
+                      className="text-3xl font-bold transition-all duration-300 hover:scale-110 flex items-center gap-3 text-muted-foreground hover:text-foreground"
+                    >
+                      <LogOut className="w-8 h-8" />
+                      Odjavi se
+                    </button>
+                  </motion.div>
+                )}
               </div>
             </nav>
           </motion.div>
