@@ -80,13 +80,9 @@ export default async function GymQRPage() {
         </ol>
       </div>
 
-      <div className="text-center">
-        <button 
-          onClick={() => window.print()} 
-          className="btn btn-primary"
-        >
-          🖨️ Štampaj stranicu
-        </button>
+      <div className="text-center p-4 bg-gray-50 rounded-lg">
+        <p className="text-sm text-gray-600 mb-2">Za štampanje:</p>
+        <p className="font-semibold">Pritisnite Ctrl+P (Windows) ili Cmd+P (Mac)</p>
       </div>
     </div>
   );
