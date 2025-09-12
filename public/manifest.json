@@ -1,0 +1,27 @@
+{
+  "name": "PRINCIP Kickboxing Klub",
+  "short_name": "PRINCIP",
+  "description": "Profesionalni sistem za upravljanje članarinama - PRINCIP Kickboxing klub",
+  "theme_color": "#ef4444",
+  "background_color": "#0a0a0a",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["sports", "fitness", "lifestyle"],
+  "lang": "sr",
+  "dir": "ltr"
+}
