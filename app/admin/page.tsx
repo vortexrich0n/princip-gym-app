@@ -101,11 +101,16 @@ export default async function AdminPage() {
 
   return (
     <div className="space-y-6 p-4">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center flex-wrap gap-2">
         <h2 className="text-3xl font-bold">Admin Panel</h2>
-        <form action={expireInactive}>
-          <button className="btn btn-secondary">Deaktiviraj istekle članarine</button>
-        </form>
+        <div className="flex gap-2">
+          <a href="/gym-qr" className="btn btn-primary">
+            📱 QR Kod za Klub
+          </a>
+          <form action={expireInactive}>
+            <button className="btn btn-secondary">Deaktiviraj istekle članarine</button>
+          </form>
+        </div>
       </div>
 
       <div className="grid md:grid-cols-3 gap-4">
