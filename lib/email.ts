@@ -12,7 +12,8 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function sendVerificationEmail(email: string, token: string) {
-  const verificationUrl = `${process.env.NEXTAUTH_URL}/api/verify-email?token=${token}`;
+  const baseUrl = process.env.NEXTAUTH_URL || 'https://princip-gym-app.vercel.app';
+  const verificationUrl = `${baseUrl}/api/verify-email?token=${token}`;
   
   const mailOptions = {
     from: process.env.EMAIL_USER || 'noreply@principgym.com',

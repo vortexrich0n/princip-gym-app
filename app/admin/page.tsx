@@ -251,13 +251,9 @@ export default async function AdminPage() {
                       </>
                     )}
                     
-                    <form action={deleteUser} onSubmit={(e) => {
-                      if (!confirm('Da li ste sigurni da želite da obrišete ovog korisnika?')) {
-                        e.preventDefault();
-                      }
-                    }}>
+                    <form action={deleteUser}>
                       <input type="hidden" name="userId" value={u.id} />
-                      <button className="btn btn-sm btn-error">🗑️</button>
+                      <button className="btn btn-sm btn-error" type="submit">🗑️</button>
                     </form>
                   </div>
                 </div>
