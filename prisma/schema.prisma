@@ -9,15 +9,17 @@ generator client {
 }
 
 model User {
-  id           String   @id @default(cuid())
-  email        String   @unique
-  passwordHash String
-  name         String?
-  role         String   @default("USER")
-  qrData       String?  // cached data string used for QR code
-  createdAt    DateTime @default(now())
-  membership   Membership?
-  checkins     Checkin[]
+  id              String   @id @default(cuid())
+  email           String   @unique
+  passwordHash    String
+  name            String?
+  role            String   @default("USER")
+  qrData          String?  // cached data string used for QR code
+  emailVerified   Boolean  @default(false)
+  verificationToken String? @unique
+  createdAt       DateTime @default(now())
+  membership      Membership?
+  checkins        Checkin[]
 }
 
 model Membership {

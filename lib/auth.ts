@@ -21,6 +21,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const { email, password } = parsed.data;
         const user = await prisma.user.findUnique({ where: { email } });
         if (!user) return null;
+        
+        // Proveri da li je email verifikovan (samo ako je EMAIL konfigurisan)
+        if (process.env.EMAIL_USER && process.env.EMAIL_PASSWORD && !user.emailVerified) {
+          throw new Error("Email nije verifikovan. Proverite vašu email adresu.");
+        }
+        
         const ok = await bcrypt.compare(password, user.passwordHash);
         if (!ok) return null;
         return { id: user.id, email: user.email, name: user.name, role: user.role };
