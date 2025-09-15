@@ -77,19 +77,19 @@ export default async function Dashboard() {
   }).length || 0;
 
   return (
-    <div className="container mx-auto px-4 py-8 pb-24 lg:pb-8">
+    <div className="w-full py-8 pb-24">
       {/* Header */}
-      <div className="mb-12 text-center animate-fade-in">
-        <h1 className="text-5xl md:text-6xl font-black mb-4">
+      <div className="mb-8 text-center animate-fade-in">
+        <h1 className="text-3xl font-black mb-3">
           Dobrodošli, <span className="text-gradient-champion">{user?.name?.split(' ')[0]}</span>
         </h1>
-        <p className="text-muted-foreground text-xl font-medium">
+        <p className="text-muted-foreground text-base font-medium">
           Vaš lični prostor u PRINCIP Kickboxing klubu
         </p>
       </div>
 
       {/* Status Cards */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-12">
+      <div className="grid gap-4 grid-cols-2 mb-8">
         <div className={cn(
           "champion-card p-6 relative overflow-hidden hover-lift",
           active ? "border-green-500/30" : "border-red-500/30"

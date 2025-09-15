@@ -59,12 +59,12 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 pb-24 lg:pb-8 min-h-[80vh] flex items-center justify-center">
+    <div className="w-full py-8 pb-24 min-h-[80vh] flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-md"
+        className="w-full"
       >
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold tracking-tight">
@@ -75,7 +75,7 @@ export default function RegisterPage() {
           </p>
         </div>
 
-        <div className="card p-8">
+        <div className="card p-6">
           <form onSubmit={onSubmit} className="space-y-6">
             <div className="space-y-4">
               <div>

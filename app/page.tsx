@@ -32,13 +32,13 @@ export default function Home() {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
 
   return (
-    <div className="relative min-h-screen pb-24 lg:pb-0" ref={containerRef}>
+    <div className="relative min-h-screen w-full" ref={containerRef}>
       {/* Hero Section with Background Image */}
-      <section className="relative min-h-screen flex items-center justify-center -mt-20 -mx-[calc((100vw-100%)/2)]">
+      <section className="relative min-h-screen flex items-center justify-center -mt-20">
         {/* Background Image with Parallax */}
         <motion.div 
           style={{ y }}
-          className="absolute inset-0 z-0 w-screen"
+          className="absolute inset-0 z-0 w-full"
         >
           <div className="absolute inset-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=3000')] bg-cover bg-center" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70" />
@@ -53,7 +53,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center max-w-5xl w-full"
+            className="text-center w-full"
           >
             {/* Logo */}
             <motion.div
@@ -67,42 +67,42 @@ export default function Home() {
                 alt="Princip Kickboxing"
                 width={200}
                 height={200}
-                className="mx-auto filter drop-shadow-2xl"
+                className="mx-auto filter drop-shadow-2xl w-32 h-32"
                 priority
               />
             </motion.div>
 
-            <h1 className="text-6xl sm:text-7xl md:text-9xl font-black mb-4 text-white tracking-tighter">
+            <h1 className="text-5xl font-black mb-2 text-white tracking-tighter">
               <span className="bg-gradient-to-r from-white via-red-200 to-white bg-clip-text text-transparent">
                 PRINCIP
               </span>
             </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl text-red-400 mb-3 font-bold tracking-[0.3em] uppercase">
+            <p className="text-base text-red-400 mb-2 font-bold tracking-[0.2em] uppercase">
               KICKBOXING KLUB
             </p>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-8 sm:mb-12 px-4">
+            <p className="text-sm text-gray-300 w-full mb-6 px-4">
               Gde se kuju šampioni. Pridruži se elitnoj zajednici boraca.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20 sm:mb-0">
+            <div className="flex flex-col gap-3 w-full mb-20">
               <Link
                 href="/register"
-                className="group relative overflow-hidden bg-gradient-to-r from-red-600 to-red-700 text-white px-10 py-5 rounded-xl font-bold text-base sm:text-lg transition-all duration-500 flex items-center justify-center gap-3 shadow-2xl hover:shadow-red-500/25 hover:scale-105"
+                className="group relative overflow-hidden bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-4 rounded-xl font-bold text-sm transition-all duration-500 flex items-center justify-center gap-2 shadow-2xl hover:shadow-red-500/25 w-full"
               >
                 <span className="relative z-10">Postani Član</span>
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-2 transition-transform relative z-10" />
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-2 transition-transform relative z-10" />
                 <div className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-800 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </Link>
               <Link
                 href="/scan"
-                className="group relative overflow-hidden border-2 border-white/60 text-white px-10 py-5 rounded-xl font-bold text-base sm:text-lg hover:bg-white hover:text-black transition-all duration-500 flex items-center justify-center gap-3 backdrop-blur-md"
+                className="group relative overflow-hidden border-2 border-white/60 text-white px-6 py-4 rounded-xl font-bold text-sm hover:bg-white hover:text-black transition-all duration-500 flex items-center justify-center gap-2 backdrop-blur-md w-full"
               >
-                <QrCode className="w-5 h-5" />
+                <QrCode className="w-4 h-4" />
                 <span>QR Check-In</span>
               </Link>
               <Link
                 href="/login"
-                className="group relative overflow-hidden border-2 border-white/60 text-white px-10 py-5 rounded-xl font-bold text-base sm:text-lg hover:bg-white hover:text-black transition-all duration-500 backdrop-blur-md"
+                className="group relative overflow-hidden border-2 border-white/60 text-white px-6 py-4 rounded-xl font-bold text-sm hover:bg-white hover:text-black transition-all duration-500 backdrop-blur-md flex items-center justify-center w-full"
               >
                 <span>Članovi</span>
               </Link>
@@ -113,8 +113,8 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-white dark:bg-gray-900 relative">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-white dark:bg-gray-900 relative w-full">
+        <div className="w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -122,15 +122,15 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-black mb-6 text-gradient-hero">
+            <h2 className="text-3xl font-black mb-4 text-gradient-hero">
               Zašto Baš Mi?
             </h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-xl font-medium">
+            <p className="text-gray-600 dark:text-gray-400 w-full text-base font-medium">
               Decenija iskustva u stvaranju šampiona
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-4">
             {[
               {
                 title: "Profesionalni Treneri",
@@ -183,16 +183,16 @@ export default function Home() {
                     <img 
                       src={feature.image} 
                       alt={feature.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
                   </div>
-                  <div className="relative z-10 p-8 h-full flex flex-col justify-end min-h-[320px]">
+                  <div className="relative z-10 p-6 h-full flex flex-col justify-end min-h-[240px]">
                     <div className="bg-accent/20 backdrop-blur-sm rounded-full w-16 h-16 flex items-center justify-center mb-4 group-hover:bg-accent/30 transition-colors duration-300">
                       <Icon className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-red-400 transition-colors duration-300">{feature.title}</h3>
-                    <p className="text-gray-200 font-medium">{feature.description}</p>
+                    <h3 className="text-xl font-bold mb-2 text-white">{feature.title}</h3>
+                    <p className="text-gray-200 text-sm">{feature.description}</p>
                   </div>
                 </motion.div>
               );
@@ -202,8 +202,8 @@ export default function Home() {
       </section>
 
       {/* Training Programs Section */}
-      <section className="py-24 bg-gray-50 dark:bg-gray-950 relative">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-gray-50 dark:bg-gray-950 relative w-full">
+        <div className="w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -211,15 +211,15 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-black mb-6 text-gradient-hero">
+            <h2 className="text-3xl font-black mb-4 text-gradient-hero">
               Programi Treninga
             </h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-xl font-medium">
+            <p className="text-gray-600 dark:text-gray-400 w-full text-base font-medium">
               Od početnika do profesionalaca
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 gap-3">
             {[
               { 
                 name: "Početnici", 
@@ -259,8 +259,8 @@ export default function Home() {
                 className="glass-card hover-lift cursor-pointer overflow-hidden group"
               >
                 <div className={`h-3 bg-gradient-to-r ${program.color} group-hover:h-4 transition-all duration-300`} />
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold mb-4 group-hover:text-accent transition-colors duration-300">{program.name}</h3>
+                <div className="p-4">
+                  <h3 className="text-lg font-bold mb-2">{program.name}</h3>
                   <div className="space-y-2 text-gray-600 dark:text-gray-400">
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4" />
@@ -292,13 +292,13 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-16 relative overflow-hidden w-full">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517438322307-e67111335449?q=80&w=2000')] bg-cover bg-center bg-fixed" />
           <div className="absolute inset-0 bg-black/70" />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 gap-4 text-center">
             {[
               { number: "10+", label: "Godina Iskustva" },
               { number: "500+", label: "Aktivnih Članova" },
@@ -312,10 +312,10 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-6xl md:text-7xl font-black text-transparent bg-gradient-to-r from-red-400 to-white bg-clip-text mb-3">
+                <h3 className="text-4xl font-black text-transparent bg-gradient-to-r from-red-400 to-white bg-clip-text mb-2">
                   {stat.number}
                 </h3>
-                <p className="text-white text-xl font-semibold uppercase tracking-wider">{stat.label}</p>
+                <p className="text-white text-sm font-semibold uppercase tracking-wider">{stat.label}</p>
               </motion.div>
             ))}
           </div>
@@ -323,31 +323,31 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-white dark:bg-gray-900 w-full">
+        <div className="w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
+            className="w-full text-center"
           >
-            <h2 className="text-5xl md:text-6xl font-black mb-6 text-gradient-hero">
+            <h2 className="text-3xl font-black mb-4 text-gradient-hero">
               Spreman za Promenu?
             </h2>
-            <p className="text-2xl text-gray-600 dark:text-gray-400 mb-10 font-medium">
+            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 font-medium">
               Prvi trening je besplatan. Bez obaveza.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col gap-3 w-full">
               <Link
                 href="/register"
-                className="btn btn-primary px-10 py-5 text-lg font-bold shadow-2xl hover:scale-105 transition-all duration-300"
+                className="btn btn-primary px-6 py-4 text-base font-bold shadow-xl w-full"
               >
                 Zakaži Besplatan Trening
               </Link>
               <Link
                 href="/login"
-                className="btn btn-outline px-10 py-5 text-lg font-bold hover:scale-105 transition-all duration-300"
+                className="btn btn-outline px-6 py-4 text-base font-bold w-full"
               >
                 Već Sam Član
               </Link>
@@ -357,9 +357,9 @@ export default function Home() {
       </section>
 
       {/* Contact Info */}
-      <section className="py-20 pb-32 lg:pb-20 border-t bg-gray-50 dark:bg-gray-950">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
+      <section className="py-12 mb-20 border-t bg-gray-50 dark:bg-gray-950 w-full">
+        <div className="w-full">
+          <div className="grid grid-cols-1 gap-4">
             <div className="flex items-start gap-4">
               <MapPin className="w-6 h-6 text-gray-600 dark:text-gray-400 flex-shrink-0 mt-1" />
               <div>

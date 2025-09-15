@@ -53,26 +53,26 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 pb-24 lg:pb-8 min-h-[80vh] flex items-center justify-center">
+    <div className="w-full py-8 pb-24 min-h-[80vh] flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
-        className="w-full max-w-md"
+        className="w-full"
       >
         <div className="text-center mb-10 animate-fade-in">
           <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 mb-6 animate-pulse-soft">
             <LogIn className="h-10 w-10 text-accent" />
           </div>
-          <h1 className="text-4xl font-black tracking-tight mb-3">
+          <h1 className="text-3xl font-black tracking-tight mb-3">
             Dobrodošli <span className="text-gradient-champion">Nazad</span>
           </h1>
-          <p className="text-lg text-muted-foreground font-medium">
+          <p className="text-base text-muted-foreground font-medium">
             Prijavite se na vaš <span className="text-gradient-champion font-bold">PRINCIP</span> nalog
           </p>
         </div>
 
-        <div className="champion-card p-10 animate-scale-in">
+        <div className="champion-card p-6 animate-scale-in">
           <form onSubmit={onSubmit} className="space-y-6">
             <div className="space-y-4">
               <div>

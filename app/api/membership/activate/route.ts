@@ -11,14 +11,19 @@ const schema = z.object({
 });
 
 export async function POST(req: Request) {
-  const body = await req.json();
-  const parsed = schema.safeParse(body);
-  if (!parsed.success) return NextResponse.json({ error: "Invalid" }, { status: 400 });
-  const { userId, active, expiresAt, plan } = parsed.data;
-  await prisma.membership.upsert({
-    where: { userId },
-    create: { userId, active, expiresAt: expiresAt ? new Date(expiresAt) : null, plan: plan || null },
-    update: { active, expiresAt: expiresAt ? new Date(expiresAt) : null, plan: plan || null }
-  });
-  return NextResponse.json({ ok: true });
+  try {
+    const body = await req.json();
+    const parsed = schema.safeParse(body);
+    if (!parsed.success) return NextResponse.json({ error: "Invalid" }, { status: 400 });
+    const { userId, active, expiresAt, plan } = parsed.data;
+    await prisma.membership.upsert({
+      where: { userId },
+      create: { userId, active, expiresAt: expiresAt ? new Date(expiresAt) : null, plan: plan || null },
+      update: { active, expiresAt: expiresAt ? new Date(expiresAt) : null, plan: plan || null }
+    });
+    return NextResponse.json({ ok: true });
+  } catch (error) {
+    console.error("Membership activation error:", error);
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+  }
 }
