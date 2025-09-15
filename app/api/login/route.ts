@@ -39,8 +39,13 @@ export async function POST(req: Request) {
 
     // Generate token
     const token = jwt.sign(
-      { userId: user.id, email: user.email },
-      process.env.NEXTAUTH_SECRET || "default-secret",
+      {
+        id: user.id,
+        userId: user.id,
+        email: user.email,
+        role: user.role
+      },
+      process.env.JWT_SECRET || process.env.NEXTAUTH_SECRET || "your-secret-key-change-in-production",
       { expiresIn: "30d" }
     );
 
