@@ -67,27 +67,27 @@ export default function Home() {
                 alt="Princip Kickboxing"
                 width={200}
                 height={200}
-                className="mx-auto filter drop-shadow-2xl w-32 h-32"
+                className="mx-auto filter drop-shadow-2xl w-32 h-32 lg:w-48 lg:h-48"
                 priority
               />
             </motion.div>
 
-            <h1 className="text-5xl font-black mb-2 text-white tracking-tighter">
+            <h1 className="text-5xl lg:text-7xl font-black mb-2 text-white tracking-tighter">
               <span className="bg-gradient-to-r from-white via-red-200 to-white bg-clip-text text-transparent">
                 PRINCIP
               </span>
             </h1>
-            <p className="text-base text-red-400 mb-2 font-bold tracking-[0.2em] uppercase">
+            <p className="text-base lg:text-xl text-red-400 mb-2 font-bold tracking-[0.2em] uppercase">
               KICKBOXING KLUB
             </p>
-            <p className="text-sm text-gray-300 w-full mb-6 px-4">
+            <p className="text-sm lg:text-lg text-gray-300 max-w-2xl mx-auto mb-8 px-4">
               Gde se kuju šampioni. Pridruži se elitnoj zajednici boraca.
             </p>
 
-            <div className="flex flex-col gap-3 w-full mb-20">
+            <div className="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto w-full px-4 mb-20">
               <Link
                 href="/register"
-                className="group relative overflow-hidden bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-4 rounded-xl font-bold text-sm transition-all duration-500 flex items-center justify-center gap-2 shadow-2xl hover:shadow-red-500/25 w-full"
+                className="group relative overflow-hidden bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-4 rounded-xl font-bold text-sm lg:text-base transition-all duration-500 flex items-center justify-center gap-2 shadow-2xl hover:shadow-red-500/25 w-full sm:w-auto sm:px-8"
               >
                 <span className="relative z-10">Postani Član</span>
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-2 transition-transform relative z-10" />
@@ -95,14 +95,14 @@ export default function Home() {
               </Link>
               <Link
                 href="/scan"
-                className="group relative overflow-hidden border-2 border-white/60 text-white px-6 py-4 rounded-xl font-bold text-sm hover:bg-white hover:text-black transition-all duration-500 flex items-center justify-center gap-2 backdrop-blur-md w-full"
+                className="group relative overflow-hidden border-2 border-white/60 text-white px-6 py-4 rounded-xl font-bold text-sm lg:text-base hover:bg-white hover:text-black transition-all duration-500 flex items-center justify-center gap-2 backdrop-blur-md w-full sm:w-auto sm:px-8"
               >
                 <QrCode className="w-4 h-4" />
                 <span>QR Check-In</span>
               </Link>
               <Link
                 href="/login"
-                className="group relative overflow-hidden border-2 border-white/60 text-white px-6 py-4 rounded-xl font-bold text-sm hover:bg-white hover:text-black transition-all duration-500 backdrop-blur-md flex items-center justify-center w-full"
+                className="group relative overflow-hidden border-2 border-white/60 text-white px-6 py-4 rounded-xl font-bold text-sm lg:text-base hover:bg-white hover:text-black transition-all duration-500 backdrop-blur-md flex items-center justify-center w-full sm:w-auto sm:px-8"
               >
                 <span>Članovi</span>
               </Link>
@@ -114,7 +114,7 @@ export default function Home() {
 
       {/* Features Section */}
       <section className="py-16 bg-white dark:bg-gray-900 relative w-full">
-        <div className="w-full">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -130,7 +130,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
                 title: "Profesionalni Treneri",
@@ -203,7 +203,7 @@ export default function Home() {
 
       {/* Training Programs Section */}
       <section className="py-16 bg-gray-50 dark:bg-gray-950 relative w-full">
-        <div className="w-full">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -219,7 +219,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {[
               { 
                 name: "Početnici", 
@@ -324,7 +324,7 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-16 bg-white dark:bg-gray-900 w-full">
-        <div className="w-full">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -358,8 +358,8 @@ export default function Home() {
 
       {/* Contact Info */}
       <section className="py-12 mb-20 border-t bg-gray-50 dark:bg-gray-950 w-full">
-        <div className="w-full">
-          <div className="grid grid-cols-1 gap-4">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex items-start gap-4">
               <MapPin className="w-6 h-6 text-gray-600 dark:text-gray-400 flex-shrink-0 mt-1" />
               <div>

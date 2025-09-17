@@ -37,13 +37,13 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <html lang="sr" suppressHydrationWarning>
       <body className={cn(inter.className, "min-h-screen antialiased")}>
         <Providers>
-          <div className="relative flex min-h-screen flex-col w-full max-w-[400px] mx-auto">
+          <div className="relative flex min-h-screen flex-col w-full">
             <Nav />
-            <main className="flex-1 w-full px-4">
+            <main className="flex-1 w-full">
               {children}
             </main>
             <footer className="border-t bg-card/50 backdrop-blur-sm mb-20 lg:mb-0">
-              <div className="w-full px-4 py-6">
+              <div className="w-full px-4 lg:px-8 py-6">
                 <div className="flex flex-col items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
                     <span className="text-xl font-bold text-gradient">PRINCIP</span>
