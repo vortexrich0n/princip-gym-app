@@ -84,27 +84,48 @@ export default function Home() {
               Gde se kuju šampioni. Pridruži se elitnoj zajednici boraca.
             </p>
 
+            {/* App Download Section */}
+            <div className="flex flex-col gap-4 w-full mb-8">
+              <h3 className="text-lg font-bold text-white mb-2">Preuzmite našu aplikaciju</h3>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="https://play.google.com/store"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block hover:scale-105 transition-transform"
+                >
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                    alt="Get it on Google Play"
+                    className="h-14 w-auto mx-auto"
+                  />
+                </a>
+
+                <a
+                  href="https://www.apple.com/app-store/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block hover:scale-105 transition-transform"
+                >
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                    alt="Download on the App Store"
+                    className="h-14 w-auto mx-auto"
+                  />
+                </a>
+              </div>
+            </div>
+
+            {/* Quick Links */}
             <div className="flex flex-col gap-3 w-full mb-20">
               <Link
-                href="/register"
+                href="/scan"
                 className="group relative overflow-hidden bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-4 rounded-xl font-bold text-sm transition-all duration-500 flex items-center justify-center gap-2 shadow-2xl hover:shadow-red-500/25 w-full"
               >
-                <span className="relative z-10">Postani Član</span>
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-2 transition-transform relative z-10" />
-                <div className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-800 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </Link>
-              <Link
-                href="/scan"
-                className="group relative overflow-hidden border-2 border-white/60 text-white px-6 py-4 rounded-xl font-bold text-sm hover:bg-white hover:text-black transition-all duration-500 flex items-center justify-center gap-2 backdrop-blur-md w-full"
-              >
                 <QrCode className="w-4 h-4" />
-                <span>QR Check-In</span>
-              </Link>
-              <Link
-                href="/login"
-                className="group relative overflow-hidden border-2 border-white/60 text-white px-6 py-4 rounded-xl font-bold text-sm hover:bg-white hover:text-black transition-all duration-500 backdrop-blur-md flex items-center justify-center w-full"
-              >
-                <span>Članovi</span>
+                <span className="relative z-10">QR Check-In</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-800 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </Link>
             </div>
 
