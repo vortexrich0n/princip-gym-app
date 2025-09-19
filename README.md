@@ -29,3 +29,4 @@ Modern Next.js app with email+password auth, Prisma + SQLite, QR membership, cas
 
 ### Logo
 - Logo is placed in /public/logo.png; replace with your file if needed.
+# Deployment trigger
